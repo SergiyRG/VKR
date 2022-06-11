@@ -1,0 +1,73 @@
+#four {
+  padding: 20px;
+}
+
+#resBtn {
+    margin-top: 30px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;	
+}
+
+body {
+  margin: 5px 45px 15px 45px;
+  padding: 15px;
+
+}
+
+
+.info{
+margin-top: 150px;
+}
+
+.flex {
+  width: 100%;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+}
+
+h1{
+	text-align:center;
+  margin-bottom: 30px;
+}
+h2{
+
+  margin:0 auto;
+}
+
+.result{
+  display: flex;
+	text-align:center;
+}
+
+.flex{
+  display: flex;
+	text-align:center;
+  flex-direction: column;
+}
+
+
+.zuzu {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.zuzu img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collapse {
+  align-self: center;
+}
+
+button#resBtn{
+  width: 550px;
+}
+
+.result_2{
+  margin-top: 30px;
+}

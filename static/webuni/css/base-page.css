@@ -1,0 +1,202 @@
+body {
+  background-image: url(../img/body_back.jpg); 
+  background-size: cover;
+}
+
+div.page-info-section {
+  height: 100%; 
+  margin: 0 auto; 
+  padding: 50px 10px;
+}
+
+div#page-info-section-in {
+  background-image: url(../img/blog_back3.jpg); 
+  background-size: cover; 
+  border-radius: 5px;
+}
+
+div#page-info-section-in-two {
+  background-image: url(../img/blog_back3.jpg); 
+  background-size: cover; 
+  border-radius: 5px;
+}
+
+div.signup {
+  background-image: url(../img/page-bg/2.jpg); 
+  background-size: cover;
+  height: 130%; 
+}
+
+div#respas {
+  background-image: url(../img/page-bg/2.jpg); 
+  background-size: cover; 
+  height: 100%;
+  padding: 50px 10px;
+  margin: 0 auto;
+}
+
+div#respas .resin {
+  background-image: url(../img/blog_back3.jpg); 
+  background-size: cover;
+  padding: 30px 40px;
+  border-radius: 5px;
+}
+
+div#profile {
+  border-radius:5px;
+  background-color: beige;
+  color: #ab00ff;
+}
+
+.categories-section {
+  background-image: url(../img/homepage_image.jpg);
+  background-size: cover;
+}
+
+.course-section {
+  background-image: url(../img/homepage_image2.jpg);
+  background-size: cover;
+}
+
+.banner-section {
+  background-image: url(../img/homepage_image3.png);
+  background-size: cover;
+  margin-top: -24px;
+  padding-top: 74px; 
+}
+
+.banner-section h2, .banner-section p {
+  color: white;
+}
+
+.footer-section {
+  background-image: url(../img/homepage_footer.jpg);
+  background-size: cover;
+}
+
+.footer-section ul li, .footer-section ul li a {
+  color: black;
+}
+
+.footer-bottom {
+  background-color: #1B1116;
+}
+
+.btm {
+  color: white;
+}
+
+.section-title > p {
+  width: 90%;
+}
+
+.topmenu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.topmenu > li {
+  width: 25%;
+  float: left;
+  position: relative;
+}
+.topmenu > li > a {
+  text-transform: uppercase;
+  color: white;
+}
+.topmenu li a:hover { color: orange; }
+
+.submenu-link:after {
+  content: "\f107";
+  font-family: "FontAwesome";
+  color: inherit;
+  margin-left: 10px;
+}
+.submenu {
+  background: #273037;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 5;
+  width: 140px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  transition: .5s ease-in-out;
+}
+
+.submenu li {
+  list-style-type: none;
+}
+
+.submenu a {
+  outline: none;
+  color: white;
+  text-align: left;
+  padding: 12px 15px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.submenu li:last-child a { border-bottom: none; }
+
+.topmenu > li:hover .submenu {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.multi {
+  padding-top: 15px;
+}
+
+#mainNav .container {
+  max-width: 1400px;
+}
+
+#redact textarea {
+    width: 90%; /* Ширина поля в процентах */
+    height: 250px; /* Высота поля в пикселах */
+    resize: none; /* Запрещаем изменять размер */
+} 
+
+#redact .btn-red {
+  width:140px;
+  text-align:center;
+  display:block;
+  font-family: arial;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 14px;
+  border: black 2px solid;
+  color: black;
+  padding: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0 0 20px 40px;
+  transition: .5s;
+  border-radius: 0px;
+}
+#redact .btn-red:hover {
+  top: 5px;
+  transition: .5s;
+  color: black;
+  font-size: 16px;
+  border: black 3px solid;
+  border-radius: 10px;
+}
+#redact .btn-red:active {
+  color: #000;
+  border: #1A1A1A 3px solid;
+  transition: .07s;
+  background-color: #FFF;
+}
+
+.btn-reda {
+  background-color: green;
+  border: 2px solid green; 
+}
+
+.btn-reda:hover {
+  color: black;
+  background-color: #00FF7F;
+  border: 2px solid green;
+}

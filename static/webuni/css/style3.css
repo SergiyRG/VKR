@@ -1,0 +1,40 @@
+.main_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+button.btn.btn-primary.qq{
+    
+    margin:75px auto;
+}
+
+select.form-select{
+    max-width: 150px;
+}
+
+form.flex{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.m_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input_item{
+    margin-bottom: 15px;
+}
+
+
