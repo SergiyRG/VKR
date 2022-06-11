@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"><link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
+
+    <title>Результат</title>
+     <link rel="stylesheet" href="{% static 'css/covid19.css' %}">
+    <style type="text/css">
+        html {
+          background-image: url({% static 'webuni/img/bg4.jpg' %}); /* Путь к фоновому изображению */
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-attachment: fixed;
+          background-size: cover;
+       }
+       body {
+          margin-top: 200px;
+          background-color: transparent;
+       }
+       .container {
+          width: 80%;
+          background-color: white;
+          border: 2px solid black;
+          opacity: 0.9;
+       }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">
+        <h1 align='center'>Прогнозирование вероятности заражения COVID-19 по внешним симптомам</h1>
+        <h3 align='center'>C применением нечеткой логики(Fuzzy Logic)</h3>
+    </div>
+
+    <div class="result" >
+        <p class="display-5"><strong>{{name}},</strong></p>
+        <h1 class="display-6">вероятность того, что вы будете инфицированы вирусом COVID-19 составляет:</h1>
+        <p class="display-4"><strong>{{res}}%</strong></p>
+        <button type="button" class="btn btn-primary" id="с19Btn" onclick="location.href='/'" style="justify-content: center">Вернуться на главную</button>
+    </div>
+
+    <div class="prev_results">
+      <table class="table caption-top">
+        <caption>
+          <p class="display-6" align='center'><strong>Предыдущие результаты</strong></p>
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">ФИО</th>
+            <th scope="col">Возраст</th>
+            <th scope="col">Результат</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if patients.count > 0 %}
+          {% for patient in patients %}
+          <tr class="table-primary">
+            <td>
+              {{patient.name}}
+            </td>
+            <td >
+              {{patient.age}}
+            </td>
+            <td >
+              {{patient.c19_result}}
+            </td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

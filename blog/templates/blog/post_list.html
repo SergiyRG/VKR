@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<!-- Page  -->
+<section class="blog-page spad pb-0" style="background-image: url(../static/webuni/img/blog_back2.jpg); background-size: cover;" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        {% if request.user.profile.is_teacher == True %}
+        <a href="{% url 'blogs:create_post' %}" style="color: black;" class="site-btn">Добавить задание</a>
+        {% endif %}
+        {% if posts %}
+        {% for post in posts %}
+        <!-- blog post -->
+        <div class="blog-post">
+          <h3>{{ post.title }}</h3>
+          <div class="blog-metas">
+            <div class="blog-meta author">
+              <div class="post-author set-bg" data-setbg="/media/{{ post.author.profile.profile_pic }}"></div>
+              <a href="#">{{ post.author|capfirst }}</a>
+            </div>
+            <div class="blog-meta">
+              <a href="#">{{ post.created_date }}</a>
+            </div>
+          </div>
+          <p><pre>{{ post.text|capfirst }}</pre></p>
+          <a href="/blog/{{ post.id }}" class="btn btn-primary">Подробности</a>
+        </div>
+        {% endfor %}
+        {% else %}
+
+        {% endif %}
+        
+      </div>
+      <div class="col-lg-3 col-md-5 col-sm-9 sidebar">
+        <div class="sb-widget-item">
+          <form class="search-widget">
+            <input type="text" placeholder="Поиск">
+            <button><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+        <div class="sb-widget-item">
+          <h4 class="sb-w-title" style="text-align: center;">Архив материалов</h4>
+        </div>
+        <div class="sb-widget-item">
+          <h4 class="sb-w-title">Семестр #1</h4>
+          <ul>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Сентябрь</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Октябрь</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Ноябрь</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Декабрь</a></li>
+          </ul>
+        </div>
+        <div class="sb-widget-item">
+          <h4 class="sb-w-title">Зимняя сессия</h4>
+          <ul>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Лекционный материал</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Практический материал</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Дополнительный материал</a></li>
+          </ul>
+        </div>
+        <div class="sb-widget-item">
+          <h4 class="sb-w-title">Семестр #2</h4>
+          <ul>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Февраль</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Март</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Апрель</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Май</a></li>
+          </ul>
+        </div>
+        <div class="sb-widget-item">
+          <h4 class="sb-w-title">Летняя сессия</h4>
+          <ul>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Лекционный материал</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Практический материал</a></li>
+            <li><a href="{% static '../static/webuni/download/tasks_archive/' %}" download>Дополнительный материал</a></li>
+          </ul>
+        </div>
+        <div class="sb-widget-item">
+          <h4 class="sb-w-title">Хэштеги</h4>
+          <div class="tags">
+            <a href="#">education</a>
+            <a href="#">courses</a>
+            <a href="#">development</a>
+            <a href="#">on-line courses</a>
+            <a href="#">prolog</a>
+            <a href="#">fuzzy logic</a>
+            <a href="#">expert systems</a>
+            <a href="#">video lessons</a>
+          </div>
+        </div>
+        <div class="sb-widget-item">
+          <div class="add" style="position: fixed; bottom: 10px; right: 10px;">
+            <a href="#"><img src="../static/webuni/img/up_line.png" width="200" height="200" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Page end -->
+{% endif %}
+{% endblock content %}

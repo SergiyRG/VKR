@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if request.user.profile.is_teacher == True %}
+<div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+          <h1>Редактировать размещение:</h1>
+        <!-- blog post -->
+        <div class="blog-post" id="redact">
+              <!-- Create a Form -->
+              <form method="POST">
+                  <!-- Security token by Django -->
+                  {% csrf_token %}
+                  <!-- form as paragraph -->
+                  {{ form.as_p }}
+                  <input type="submit" value="Редактировать" class="btn-red">
+              </form>
+        </div>
+      </div>
+  </div>
+</div>
+{% endif %}
+{% endblock content %}

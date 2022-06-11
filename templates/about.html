@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Page info -->
+<div class="page-info-section set-bg" data-setbg="{% static 'webuni/img/page-bg/4.jpg' %}">
+  <div class="container">
+    <div class="site-breadcrumb">
+      <a href="/">Главная</a>
+      <span>О проекте</span>
+    </div>
+  </div>
+</div>
+<!-- Page info end -->
+
+
+<section class="about-us py-5 " id="about-us" style="background-image: url(../static/webuni/img/card_back.jpg);
+  background-size: cover;">
+    <div class="container mt-5">
+	<div class="row">
+		<div class="col-md-6">
+		    <h1 class='text-primary'>Добро пожаловать!</h1>
+		    <h2>Это платформа для онлайн обучения</h2>
+		    <hr>
+		    <p>Занятия как с группой, так и один на один с преподавателем. Студент занимается в собственном темпе, ни на кого не отвлекается.</p>
+		    <p>Все занятия под контролем и записываются, для возможности наверстать упущенное. Преподаватель видит экран студента, подсказывает и помогает при необходимости.</p>
+		    <p>Максимум комфорта для обучающего. Занятия проходят дома, в привычной обстановке. Студент может свободно общаться с преподавателем, рассуждать вслух, просить более сложные и интересные ему задания.</p>
+		    <p>Свобода действий. Заниматься можно из Украины, Беларуси, России, на море или на даче, из любой точки мира, где есть интернет. Можно закончить и возобновить занятия в любой момент.</p>
+		    </div>
+		<div class="col-md-6">
+		    <img src="http://themebubble.com/demo/marketingpro/wp-content/uploads/2016/10/seo-slide.png "alt="">
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

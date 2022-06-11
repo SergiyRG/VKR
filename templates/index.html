@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- Hero section -->
+<section class="hero-section set-bg" data-setbg="{% static 'webuni/img/bg.jpg'%}">
+  <div class="container">
+    <div class="hero-text text-white">
+      {% if request.user.is_authenticated %}
+      <h2>Добро пожаловать {% if request.user.profile.is_teacher == True %}
+         преподаватель,
+        {% endif %} {{ request.user.username|capfirst }}
+
+       
+      </h2>
+      {% else %}
+      <h2>Web-платформа для обучения логическому языку программирования Prolog</h2>
+      {% endif %}
+      <p></p>
+    </div>
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <form method="post" action="{% url 'courses:kerko_kurs' %}" class="intro-newslatter"> {% csrf_token %}
+          <input name="search" type="text" placeholder="Что ищете?">
+          <button type="submit" class="site-btn">Поиск</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Hero section end -->
+
+<!-- categories section -->
+<section class="categories-section spad">
+  <div class="container">
+    <div class="section-title">
+      <h2 id="kurset">Обучающие Курсы</h2>
+      <p>Курсы делятся на разные категории в зависимости от уровня. Вы должны сначала зарегистрироваться, а затем сможете посещать курсы, к которым вы принадлежите.</p>
+    </div>
+    <div class="row">
+      {% for cat in category %}
+      <!-- categorie -->
+      <div data-aos="zoom-in" class="col-lg-4 col-md-6">
+        <div class="categorie-item">
+          <div class="ci-thumb set-bg" data-setbg="{{ cat.photo.url }}"></div>
+          <div class="ci-text">
+
+            <h5>{{cat.title|capfirst}}</h5>
+
+            <p>{{ cat.description|capfirst }}</p>
+            <span><a class="btn btn-success" href="/courses/{{ cat.id }}">Подробнее</a></span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- categories section end -->
+{% if request.user.is_authenticated %}
+{% else %}
+<section class="course-section spad">
+  <div class="container">
+    <div class="section-title mb-0">
+      <h2>Примеры курсов</h2>
+      <p class="pb-3">Вот некоторые примеры курсов, которые студенты и ученики проходят на нашей платформе.</p>
+    </div>
+  </div>
+  <div class="course-warp">                                     
+    <div class="row course-items-area">
+      <!-- course -->
+      <div class="mix col-lg-3 col-md-4 col-sm-6 design">
+        <div class="course-item">
+          <div class="course-thumb set-bg">
+            <video width="100%" height="290" controls="controls">
+              <source src="{% static 'webuni/videos/homepage/1.mp4' %}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              Тег video не поддерживается вашим браузером.
+            </video>
+          </div>
+          <div class="course-info">
+            <div class="course-text">
+              <h5>SWI Prolog</h5>
+              <p>Introduction</p>
+              <div class="students">Course 1</div>
+            </div>
+            <div class="course-author">
+              <div class="ca-pic set-bg" data-setbg="{% static 'webuni/img/authors/0.jpg' %}"></div>
+              <p>Sergey Karpov, <span>Student</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mix col-lg-3 col-md-4 col-sm-6 design">
+        <div class="course-item">
+          <div class="course-thumb set-bg">
+            <video width="100%" height="290" controls="controls">
+              <source src="{% static 'webuni/videos/homepage/2.mp4' %}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              Тег video не поддерживается вашим браузером.
+            </video>
+          </div>
+          <div class="course-info">
+            <div class="course-text">
+              <h5>SWI Prolog</h5>
+              <p>Part 2</p>
+              <div class="students">Course 2</div>
+            </div>
+            <div class="course-author">
+              <div class="ca-pic set-bg" data-setbg="{% static 'webuni/img/authors/0.jpg' %}"></div>
+              <p>Sergey Karpov, <span>Student</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- course -->
+      <div class="mix col-lg-3 col-md-4 col-sm-6 web">
+        <div class="course-item">
+          <div class="course-thumb set-bg">
+            <video width="100%" height="290" controls="controls">
+              <source src="{% static 'webuni/videos/homepage/3.mp4' %}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              Тег video не поддерживается вашим браузером.
+            </video>
+          </div>
+          <div class="course-info">
+            <div class="course-text">
+              <h5>SWI Prolog</h5>
+              <p>Part 2</p>
+              <div class="students">Course 2</div>
+            </div>
+            <div class="course-author">
+              <div class="ca-pic set-bg" data-setbg="{% static 'webuni/img/authors/0.jpg' %}"></div>
+              <p>Sergey Karpov, <span>Student</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- course -->
+      <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+        <div class="course-item">
+          <div class="course-thumb set-bg">
+            <video width="100%" height="290" controls="controls">
+              <source src="{% static 'webuni/videos/homepage/4.mp4' %}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              Тег video не поддерживается вашим браузером.
+            </video>
+          </div>
+          <div class="course-info">
+            <div class="course-text">
+              <h5>SWI Prolog</h5>
+              <p>Part 3</p>
+              <div class="students">Course 2</div>
+            </div>
+            <div class="course-author">
+              <div class="ca-pic set-bg" data-setbg="{% static 'webuni/img/authors/0.jpg' %}"></div>
+              <p>Sergey Karpov, <span>Student</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- course section end -->
+
+{% if request.user.is_authenticated %}
+
+<!-- signup section -->
+{% if request.user.profile.is_teacher == True %}
+<section class="middle-section">
+<div class="container">
+  <h1 class="text-center">В вашей учетной записи есть доступ к преподавателю</h1>
+  <p class="text-center">Имея учетную запись преподавателя, вы теперь имеете полный доступ к этой платформе. Вы можете выполнять больше функций, чем первоначальная учетная запись студента. Вот некоторые из этих функций:</p>
+
+  <div data-aos="fade-right" class="row mt-4 mb-4 bg-light in">
+    <div class="col-md-4 text-center">
+      <h3 class="p-4">Вы можете создать собственные группы</h3> 
+      <a href="{% url 'courses:krijo_klase' %}" class="btn btn-outline-primary m-4">Создать группу</a>
+    </div>
+    <div class="col-md-8">
+      <img class="img-fluid w-100" src="{% static 'webuni/img/categories/4.jpg' %}" alt="">
+    </div>
+  </div>
+
+  <div data-aos="fade-left" class="row mt-4 mb-4 bg-light in">
+      <div class="col-md-8">
+        <img class="img-fluid w-100" src="{% static 'webuni/img/categories/2.jpg' %}" alt="">
+      </div>
+  
+    <div class="col-md-4 text-center">
+      <h3 class="p-4">Вы можете создавать новые курсы</h3> 
+      <a href="{% url 'courses:krijo_lende' %}" class="btn btn-outline-primary m-4">Добавить курс</a>
+  </div>
+</div>
+
+<div data-aos="fade-right" class="row mt-4 mb-4 bg-light in">
+  <div class="col-md-4 text-center">
+    <h3 class="p-4">Вы можете загружать новые занятия</h3> 
+    <a href="{% url 'courses:krijo_mesim' %}" class="btn btn-outline-primary m-4">Загрузить занятие</a>
+  </div>
+  <div class="col-md-8">
+    <img class="img-fluid w-100" src="{% static 'webuni/img/categories/1.jpg' %}" alt="">
+  </div>
+</div>
+</div>
+</section>
+
+{% else %}
+<section data-aos="zoom-out" class="signup-section spad">
+  <div class="signup-bg set-bg" data-setbg="{% static 'webuni/img/signup-bg.jpg' %}"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="signup-warp">
+          <div class="section-title text-white text-left">
+            <h2>Зарегистрироваться в качестве преподавателя</h2>
+            <p>Чтобы зарегистрироваться в качестве преподавателя на платформе, вы должны заполнить следующие поля, и тогда у вас будет полный доступ к загрузке курсов и видео.</p>
+            
+          </div>
+          <!-- signup form -->
+          <form action="/kerkesa/" method="post" class="signup-form">{% csrf_token %}
+            <input type="text" placeholder="Ваше имя" name="name">
+            <input type="text" placeholder="E-mail" name="e-mail">
+            <input type="text" placeholder="Номер телефона" name="phone">
+            <button class="site-btn">Отправить запрос</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}
+<!-- signup section end -->
+{% else %}
+{% endif %}
+
+{% endblock content %}
